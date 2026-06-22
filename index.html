@@ -86,16 +86,6 @@ html,body{height:100%;background:var(--bg);font-family:Inter,system-ui,sans-seri
 
 /* Topbar */
 #chat-topbar{display:flex;align-items:center;justify-content:space-between;padding:0 20px;height:58px;background:#fff;border-bottom:1px solid #E5E7EB;flex-shrink:0;gap:12px;z-index:10;position:relative}
-.topbar-left{display:flex;align-items:center;gap:10px;min-width:0}
-.client-avatar{width:36px;height:36px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:Georgia,serif;font-size:1rem;font-weight:400;background:#EEEDFE;color:#534AB7;border:1.5px solid #AFA9EC}
-.topbar-name{font-weight:600;font-size:14px;color:#111827}
-.topbar-sub{font-size:11px;color:#9CA3AF}
-.topbar-right{display:flex;align-items:center;gap:12px;flex-shrink:0}
-.advisor-online{display:flex;align-items:center;gap:6px;font-size:12px;color:#6B7280;font-weight:500}
-.online-dot{width:8px;height:8px;border-radius:50%;background:#22C55E;flex-shrink:0;box-shadow:0 0 6px rgba(34,197,94,.5)}
-#timer-box{display:flex;align-items:center;gap:6px;font-family:monospace;font-size:13px;font-weight:600;padding:5px 12px;border-radius:20px;border:1px solid #E5E7EB;background:#F9FAFB;color:#374151;transition:all .3s}
-#timer-box.urgent{color:#EF4444;border-color:rgba(239,68,68,.4);background:rgba(239,68,68,.06);animation:timerPulse 1s ease-in-out infinite}
-@keyframes timerPulse{0%,100%{box-shadow:none}50%{box-shadow:0 0 10px rgba(239,68,68,.3)}}
 
 /* Zapier bot container */
 #zapier-container{flex:1;overflow:hidden;position:relative;display:flex;flex-direction:column;min-height:0}
@@ -115,7 +105,8 @@ html,body{height:100%;background:var(--bg);font-family:Inter,system-ui,sans-seri
   align-items:flex-start;
   gap:10px;
   flex-shrink:0;
-  z-index:10;
+  z-index:100;
+  position:relative;
 }
 #time-overlay.show{display:flex}
 .overlay-steps{flex:1;min-width:0}
@@ -125,11 +116,12 @@ html,body{height:100%;background:var(--bg);font-family:Inter,system-ui,sans-seri
 #restart-btn{flex-shrink:0;padding:8px 16px;border:none;border-radius:20px;background:#6F70F6;color:#fff;font-size:12px;font-weight:600;cursor:pointer;transition:opacity .2s;white-space:nowrap;align-self:center}
 #restart-btn:hover{opacity:.85}
 
-.disclaimer{margin:24px 0 0;background:#FFFBEB;border:1.5px solid #F59E0B;border-radius:14px;padding:20px 20px 16px;font-size:13px;color:#78350F;text-align:left}
+.disclaimer{margin:24px 0 0;background:#FFFBEB;border:1.5px solid #F59E0B;border-radius:14px;padding:20px 20px 16px;font-size:13px;color:#78350F}
 .disclaimer-title{display:flex;align-items:center;gap:8px;font-weight:700;font-size:14px;color:#92400E;margin-bottom:14px}
-.disclaimer-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:10px;margin-bottom:14px;text-align:left}
-.disclaimer-list li{display:flex;gap:8px;align-items:flex-start;line-height:1.65;text-align:left}
-.disclaimer-list li::before{content:'•';color:#F59E0B;font-size:16px;flex-shrink:0;margin-top:-1px}
+.disclaimer-list{list-style:none;padding:0;margin:0 0 14px;display:flex;flex-direction:column;gap:10px}
+.disclaimer-list li{display:grid;grid-template-columns:14px 1fr;gap:0 8px;align-items:start;line-height:1.65;text-align:left}
+.disclaimer-list li .bull{color:#F59E0B;font-size:18px;line-height:1.3;display:block}
+.disclaimer-list li .txt{display:block;text-align:left}
 .disclaimer-list strong{color:#78350F}
 .disclaimer-inner{background:#FEF3C7;border-radius:8px;padding:10px 14px;font-style:italic;color:#92400E;font-size:12px;line-height:1.7;text-align:left}
 
@@ -196,10 +188,10 @@ html,body{height:100%;background:var(--bg);font-family:Inter,system-ui,sans-seri
         AI Simulations are synthetic training scenarios
       </div>
       <ul class="disclaimer-list">
-        <li>These are <strong>synthetic training and assessment scenarios</strong> generated for onboarding purposes. They do not involve real users, real customer chats, or personal data of platform users.</li>
-        <li><strong>User types and personas</strong> used in the simulations are <strong>fictional training personas</strong> — they are not based on or derived from real Nebula user data.</li>
-        <li>This simulator does <strong>not provide access</strong> to real chats, real users, or any operational platform data.</li>
-        <li>The training session is conducted with an <strong>AI assistant</strong>. You are not interacting with a real person.</li>
+        <li><span class="bull">•</span><span class="txt">These are <strong>synthetic training and assessment scenarios</strong> generated for onboarding purposes. They do not involve real users, real customer chats, or personal data of platform users.</span></li>
+        <li><span class="bull">•</span><span class="txt"><strong>User types and personas</strong> used in the simulations are <strong>fictional training personas</strong> — they are not based on or derived from real Nebula user data.</span></li>
+        <li><span class="bull">•</span><span class="txt">This simulator does <strong>not provide access</strong> to real chats, real users, or any operational platform data.</span></li>
+        <li><span class="bull">•</span><span class="txt">🤖 <strong>This simulation is conducted with an AI assistant.</strong></span></li>
       </ul>
       <div class="disclaimer-inner">The interface visually resembles the NebulaX environment for training consistency only. Any similarity to real users or conversations is coincidental.</div>
     </div>
